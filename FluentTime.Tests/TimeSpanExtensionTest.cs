@@ -1,7 +1,6 @@
 // Copyright 2011 ThoughtWorks, Inc. See LICENSE.txt for licensing info.
 using System;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace FluentTime.Tests
 {

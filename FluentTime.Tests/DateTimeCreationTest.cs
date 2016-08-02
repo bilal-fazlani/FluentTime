@@ -1,7 +1,6 @@
 // Copyright 2011 ThoughtWorks, Inc. See LICENSE.txt for licensing info.
 using System;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace FluentTime.Tests
 {
@@ -26,10 +25,12 @@ namespace FluentTime.Tests
 		}
 		
 		[Test]
-		[ExpectedException(typeof(ArgumentOutOfRangeException))]
 		public void Throws_ArgumentOutOfRangeException_on_invalid_dates ()
 		{
-			30.February(2010);
+		    Assert.Throws<ArgumentOutOfRangeException>(() =>
+		    {
+		        30.February(2010);
+		    });
 		}
 		
 		[Test]
@@ -39,25 +40,42 @@ namespace FluentTime.Tests
 			Assert.That(1.January(2001).At(12, 06),     Is.EqualTo(new DateTime(2001, 1, 1, 12, 6, 0)));
 			Assert.That(1.January(2001).At(13, 30, 22), Is.EqualTo(new DateTime(2001, 1, 1, 13, 30, 22)));
 		}
-		
-		[Test]
-		[ExpectedException(typeof(ArgumentOutOfRangeException))]
-		public void Throws_ArgumentOutOfRangeException_on_too_high_hour () { 1.January(2010).At(24); }
-		[Test]
-		[ExpectedException(typeof(ArgumentOutOfRangeException))]
-		public void Throws_ArgumentOutOfRangeException_on_too_low_hour () { 1.January(2010).At(-1); }
-		[Test]
-		[ExpectedException(typeof(ArgumentOutOfRangeException))]
-		public void Throws_ArgumentOutOfRangeException_on_too_high_minute () { 1.January(2010).At(11, 60); }
-		[Test]
-		[ExpectedException(typeof(ArgumentOutOfRangeException))]
-		public void Throws_ArgumentOutOfRangeException_on_too_low_minute () { 1.January(2010).At(11, -1); }
-		[Test]
-		[ExpectedException(typeof(ArgumentOutOfRangeException))]
-		public void Throws_ArgumentOutOfRangeException_on_too_high_second () { 1.January(2010).At(23, 59, 60); }
-		[Test]
-		[ExpectedException(typeof(ArgumentOutOfRangeException))]
-		public void Throws_ArgumentOutOfRangeException_on_too_low_second () { 1.January(2010).At(23, 59, -1); }
+
+	    [Test]
+	    public void Throws_ArgumentOutOfRangeException_on_too_high_hour()
+	    {
+	        Assert.Throws<ArgumentOutOfRangeException>(() => 1.January(2010).At(24));
+	    }
+
+	    [Test]
+	    public void Throws_ArgumentOutOfRangeException_on_too_low_hour()
+	    {
+            Assert.Throws<ArgumentOutOfRangeException>(() => 1.January(2010).At(-1));
+	    }
+
+	    [Test]
+	    public void Throws_ArgumentOutOfRangeException_on_too_high_minute()
+	    {
+            Assert.Throws<ArgumentOutOfRangeException>(() => 1.January(2010).At(11, 60));
+	    }
+
+	    [Test]
+	    public void Throws_ArgumentOutOfRangeException_on_too_low_minute()
+	    {
+            Assert.Throws<ArgumentOutOfRangeException>(() => 1.January(2010).At(11, -1));
+	    }
+
+	    [Test]
+	    public void Throws_ArgumentOutOfRangeException_on_too_high_second()
+	    {
+            Assert.Throws<ArgumentOutOfRangeException>(() => 1.January(2010).At(23, 59, 60));
+	    }
+
+	    [Test]
+	    public void Throws_ArgumentOutOfRangeException_on_too_low_second()
+	    {
+            Assert.Throws<ArgumentOutOfRangeException>(() => 1.January(2010).At(23, 59, -1));
+	    }
 
 		[Test]
 		public void PM_adds_twelve_hours_to_a_twelve_hour_time ()
@@ -72,10 +90,9 @@ namespace FluentTime.Tests
 		}
 		
 		[Test]
-		[ExpectedException(typeof(ArgumentOutOfRangeException))]
 		public void PM_throws_with_hour_greater_than_12 ()
 		{
-			1.January(2001).At(13).PM();
+            Assert.Throws<ArgumentOutOfRangeException>(() => 1.January(2001).At(13).PM());
 		}
 
 		[Test]
@@ -91,10 +108,9 @@ namespace FluentTime.Tests
 		}
 		
 		[Test]
-		[ExpectedException(typeof(ArgumentOutOfRangeException))]
 		public void AM_throws_with_hour_greater_than_12 ()
 		{
-			1.January(2001).At(13).AM();
+            Assert.Throws<ArgumentOutOfRangeException>(() => 1.January(2001).At(13).AM());
 		}
 		
 		[Test]

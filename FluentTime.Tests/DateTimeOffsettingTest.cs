@@ -1,7 +1,6 @@
 // Copyright 2011 ThoughtWorks, Inc. See LICENSE.txt for licensing info.
 using System;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace FluentTime.Tests
 {
@@ -25,14 +24,14 @@ namespace FluentTime.Tests
 		[Test]
 		public void DateTime_can_be_offset_for_a_given_system_time_zone_identifier ()
 		{
-			Assert.That(dt.OffsetFor("US/Eastern"),
+			Assert.That(dt.OffsetFor("Eastern Standard Time"),
 			            Is.EqualTo(new DateTimeOffset(dt, -4.Hours())));
 		}
 		
 		[Test]
 		public void DateTime_can_be_offset_for_a_given_TimeZoneInfo ()
 		{
-			var easternTime = TimeZoneInfo.FindSystemTimeZoneById("US/Eastern");
+			var easternTime = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
 			Assert.That(dt.OffsetFor(easternTime),
 			            Is.EqualTo(new DateTimeOffset(dt, -4.Hours())));
 		}
