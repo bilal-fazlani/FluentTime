@@ -1,10 +1,20 @@
 ﻿{
   "title": "FluentTime",
-  "description": "A fluent interface in C# for working with dates and times on the .NET framework",
+  "description": "A fluent interface in .NET for working with dates and times, inspired by ActiveSupport's time extensions.",
   "copyright": "Copyright 2011 ThoughtWorks, Inc.",
+  "authors": [ "John D. Hume" ],
+  "version": "0.1.1-*",
 
   "packOptions": {
-    "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0"
+    "owners": [ "John D. Hume" ],
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/duelinmarkers/FluentTime"
+    },
+    "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0",
+    "requireLicenseAcceptance": true,
+    "tags": [ "fluent", "time", "date", "datetime", "timespan", "extension" ],
+    "projectUrl": "https://github.com/duelinmarkers/FluentTime"
   },
 
   "frameworks": {
