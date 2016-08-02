@@ -10,3 +10,4 @@ _ReSharper*/
 *.userprefs
 
 /packages/*
+/.vs

@@ -1,0 +1,18 @@
+﻿{
+  "title": "FluentTime",
+  "description": "A fluent interface in C# for working with dates and times on the .NET framework",
+  "copyright": "Copyright 2011 ThoughtWorks, Inc.",
+
+  "packOptions": {
+    "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0"
+  },
+
+  "frameworks": {
+    "net461": {},
+    "netstandard1.6": {
+      "dependencies": {
+        "NETStandard.Library": "1.6.0"
+      }
+    }
+  }
+}
